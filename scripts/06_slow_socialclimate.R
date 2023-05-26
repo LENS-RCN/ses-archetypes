@@ -1,7 +1,7 @@
 ##download per pixel rate of change in mean temp and precip
 library(googledrive)
 
-
+#Burch Fisher generated annual estimates of the rate of change for each pixel from 1981-2022 using PRISM data. Files are in a google drive
 file <- "https://drive.google.com/drive/folders/11G74DCOHv8DgV1w36KdktlzguEeCP9Yg"
 folder <- drive_get(as_id(file))
 gdrive_files <- drive_ls(folder)
