@@ -16,9 +16,9 @@ ppt.chg <- rast(here::here("data/processed/processed_slow/ppt_mm_per_year_slope.
 
 template.rast <- rast(here::here("data/processed/processed_state/us_rough.tif"))
 
-tmean.chg.resamp <- resample(tmean.chg, template.rast)
-ppt.chg.resamp <- resample(ppt.chg, template.rast)
+temp.chg.proj <- project(tmean.chg, template.rast)
+ppt.chg.proj <- project(ppt.chg, template.rast)
 
 
-writeRaster(tmean.chg.resamp, filename = here::here("data/processed/processed_slow/tmean_chg_resamp.tif"))
-writeRaster(ppt.chg.resamp, filename = here::here("data/processed/processed_slow/ppt_chg_resamp.tif"))
+writeRaster(temp.chg.proj, filename = here::here("data/processed/processed_slow/tmean_chg_resamp.tif"), overwrite=TRUE)
+writeRaster(ppt.chg.proj, filename = here::here("data/processed/processed_slow/ppt_chg_resamp.tif"), overwrite=TRUE)
