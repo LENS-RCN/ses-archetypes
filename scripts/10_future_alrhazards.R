@@ -21,9 +21,9 @@ hazards.proj <- vect(hazards %>% st_transform(., crs=crs(template.rast)))
 
 alrag.rst <- rasterize(hazards.proj, template.rast, field="ALR_VALA")
 alrpop.rst <- rasterize(hazards.proj, template.rast, field="ALR_VALP")
-alrbldg.rst <- alrag.rst <- rasterize(hazards.proj, template.rast, field="ALR_VALB")
+alrbldg.rst <- rasterize(hazards.proj, template.rast, field="ALR_VALB")
 
 
-writeRaster(alrag.rst, filename = here::here("data/processed/processed_future/alr_ag.tif"))
-writeRaster(alrpop.rst, filename = here::here("data/processed/processed_future/alr_pop.tif"))
-writeRaster(alrbldg.rst, filename = here::here("data/processed/processed_future/alr_bldg.tif"))
+writeRaster(alrag.rst, filename = here::here("data/processed/processed_future/alr_ag.tif"), overwrite=TRUE)
+writeRaster(alrpop.rst, filename = here::here("data/processed/processed_future/alr_pop.tif"), overwrite=TRUE)
+writeRaster(alrbldg.rst, filename = here::here("data/processed/processed_future/alr_bldg.tif"), overwrite=TRUE)
