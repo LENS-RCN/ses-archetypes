@@ -25,7 +25,7 @@ pop.2020.proj <- vect(pop.2020 %>% st_transform(., crs(template.rast)))
 pop.2010.rst <- rasterize(pop.2010.proj, template.rast, field = "value")
 pop.2020.rst <- rasterize(pop.2020.proj, template.rast, field = "value")
 
-pop.chg <- (pop.2020.rst - pop.2010.rst)/pop.2010.rst
+pop.chg <- ((pop.2020.rst+1) - (pop.2010.rst+1))/(pop.2010.rst+1)
 ann.pop.chg <- pop.chg/10
 
-writeRaster(ann.pop.chg, filename = here::here("data/processed/processed_fast/pop_change_20102020.tif"))
+writeRaster(ann.pop.chg, filename = here::here("data/processed/processed_fast/pop_change_20102020.tif"), overwrite=TRUE)
