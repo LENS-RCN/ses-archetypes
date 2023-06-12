@@ -52,6 +52,6 @@ density.2020.proj <- vect(density.2020 %>% st_transform(., crs=crs(template.rast
 density.2010.rast <- rasterize(density.2010.proj, template.rast, field="org.per.cap")
 density.2020.rast <- rasterize(density.2020.proj, template.rast, field="org.per.cap")
 
-perc.chg.rast <- (((density.2020.rast - density.2010.rast)/density.2010.rast)*100)/10
+perc.chg.rast <- ((((density.2020.rast+1) - (density.2010.rast+1))/(density.2010.rast+1))*100)/10
 
-writeRaster(perc.chg.rast, filename = here::here("data/processed/processed_slow/social_cap_chg.tif"))
+writeRaster(perc.chg.rast, filename = here::here("data/processed/processed_slow/social_cap_chg.tif"), overwrite=TRUE)
