@@ -35,3 +35,7 @@ po/*~
 # RStudio Connect folder
 rsconnect/
 ses-archetypes.Rproj
+.secrets
+
+data/original/
+data/processed/
